@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="static/img/favicon.ico" type="image/x-icon">
+    <title>the kill tracker thing</title>
+    <script src="static/js/papaparse.min.js"></script>
+    <script src="static/js/chart.js"></script>
+    <script src="static/js/chartjs-plugin-datalabels@2.js"></script>
+
+    <script src="static/js/index.js" defer></script>
+
+    <link rel="stylesheet" href="static/css/98.css"/>
+    <link rel="stylesheet" href="static/css/style.css"/>
+</head>
+<body>
+
+
+<div class="window" style="height: 98vh">
+    <div class="title-bar">
+        <div class="title-bar-text">the kill tracker thing</div>
+        <div class="title-bar-controls">
+            <button aria-label="Help" id="helpBtn"></button>
+            <a href="//en.pronouns.page/@ripsquad" target="_blank" title="hi :) this is me :3">
+                <button aria-label="Restore" id="socialsLink"></button>
+            </a>
+        </div>
+    </div>
+    <div class="window-body">
+        <input type="file" id="fileInput" accept=".csv">
+        <br><br>
+        <label for="topNSelect">Select number of top items to display:</label>
+        <select id="topNSelect">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+        </select>
+        <br><br>
+        <menu role="tablist" id="tab-window">
+            <li role="tab" class="tab active" aria-selected="true" data-target="tab-graph"><a href="#tabs">Bar Graph</a>
+            </li>
+            <li role="tab" class="tab" data-target="tab-table"><a href="#tabs">Table</a></li>
+        </menu>
+        <div class="window" role="tabpanel" id="tab-graph">
+            <div class="window-body">
+                <label for="colorSelect">Select bar color:</label>
+                <select id="colorSelect">
+                    <option value="rgba(54, 162, 235, 1)">Blue</option>
+                    <option value="rgba(75, 192, 192, 1)">Green</option>
+                    <option value="rgba(255, 159, 64, 1)">Orange</option>
+                    <option value="rgba(153, 102, 255, 1)">Purple</option>
+                    <option value="rgba(255, 99, 132, 1)">Red</option>
+                    <option value="rgba(255, 206, 86, 1)">Yellow</option>
+                </select>
+
+                <button id="downloadGraph">download graph</button>
+                <br/>
+                <br/>
+                <br/>
+                <canvas id="killTrackerChart" style="height: 41vh; width: 100%;"></canvas>
+            </div>
+        </div>
+        <div class="window" role="tabpanel" id="tab-table" style="display: none;">
+            <div class="window-body">
+                <table id="resultsTable">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Kill Tracker</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <br>
+                <button id="showMore">Show More</button>
+                <button id="showLess">Show Less</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div id="helpModal" class="modal" style="z-index: 15000">
+    <div class="modal-content">
+        <div class="window">
+            <div class="title-bar">
+                <div class="title-bar-text">Help!!!</div>
+                <div class="title-bar-controls">
+                    <button class="close" aria-label="Close"></button>
+                </div>
+            </div>
+            <div class="window-body">
+                <p style="font-size: 1.3em">The csv file for this can be found on <a href="//app.destinyitemmanager.com">DIM</a>. Simply go to
+                    the
+                    "Organizer" tab, click "weapon" and then download the "Weapons.csv" file.</p>
+                <img src="static/img/help.png" style="width: 100%; max-width:100%" alt="image detailing the process">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
