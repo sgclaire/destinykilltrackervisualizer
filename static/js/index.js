@@ -139,7 +139,7 @@ function downloadChart() {
     }
 
     const _downloadElement = document.createElement("a");
-    _downloadElement.download = "destiny_2_killtracker_graph.png";
+    _downloadElement.download = "d2weapongraph-"+ Date.now() +".png";
     _downloadElement.href = chart.toBase64Image()
     _downloadElement.style.display = "none";
     document.querySelector("#__download")?.remove();
