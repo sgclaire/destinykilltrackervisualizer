@@ -98,7 +98,7 @@ function generateChart() {
         data: {
             labels: names,
             datasets: [{
-                label: 'Kill Tracker',
+                label: 'Kills',
                 data: killTrackers,
                 backgroundColor: selectedColor,
                 borderColor: borderColor,
@@ -108,7 +108,7 @@ function generateChart() {
         options: {
             scales: {
                 y: {
-                    beginAtZero: true
+                    beginAtZero: false
                 }
             },
             plugins: {
@@ -122,10 +122,13 @@ function generateChart() {
                     font: {
                         weight: 'bold'
                     }
+                },
+                customBackground: {
+                    color: "white"
                 }
             }
         },
-        plugins: [ChartDataLabels]
+        plugins: [ChartDataLabels, window.chartsCustomBackground]
     });
 }
 
